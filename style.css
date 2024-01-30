@@ -1,0 +1,65 @@
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+.doctors-container{
+
+    margin-top: 50px;
+    padding: 30px;
+}
+.title{
+    font-size: 44px;
+    color: #73407F;
+    text-align: center;
+
+}
+.flw-card{
+    width: 300px;
+    margin: auto;
+    height: 360px;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 10px;
+    text-align:center;
+    padding: 15px;
+}
+.doc-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+#search{
+    padding:7px;
+    width: 75%;
+    border: none;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 9px;
+}
+#noData{
+    display: none;
+}
+
+.nodata{
+    display: none;
+}
+#spinner{
+    display: none;
+}
+.review-card{
+    width: 410px;
+    height: 200px;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 10px;
+    text-align: center;
+    padding: 18px;
+    background-color: aliceblue;
+}
+.review-card img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+.reviews{
+    width: 1100px;
+    margin: auto;
+     
+}

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+
+
+
+    <!-- nav section start -->
+    <nav class="navbar navbar-expand-lg navbar-light " style="background:rgb(239, 173, 206);">
+        <div class="container-fluid " >
+          <a class="navbar-brand" href=""><strong><img src="static/logo-1.png" alt="" style="padding-left: 40px; width: 180px;"></strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="">User Reviews</a>
+              </li>
+              
+              
+            </ul>
+            <form class="d-flex m-2">
+                <div class="dropdown" style="margin-right:66px;">
+                    <button
+                      class="btn btn-info dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton2"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      profile
+                    </button>
+                    <ul
+                      class="dropdown-menu dropdown-menu-success"
+                      aria-labelledby="dropdownMenuButton2"
+                    >
+                    <a class="dropdown-item text-decoration-none text-dark" href=""><strong>Profile</strong></a>
+            
+            <a class="dropdown-item text-decoration-none text-dark" href=""><strong>Dashborad</strong></a>
+            
+              <div onclick="handlelogOut()" class="dropdown-item text-decoration-none text-dark" ><strong>Logout</strong></div>
+              
+              <a class="dropdown-item text-decoration-none text-dark" target="_blank" href="signup.html"><strong>Signup</strong></a>
+              <a class="dropdown-item text-decoration-none text-dark" target="_blank" href="login.html"><strong>Login</strong></a>
+                    </ul>
+                  </div>
+            
+              
+            </form>
+          </div>
+        </div>
+      </nav>
+    
+    <!-- nav section end -->
+    <div
+    id="user-detais-container" 
+    class="user-detais-container d-flex justify-content-around align-items-center gap-5"
+  >
+   
+  </div>
+  <!-- table start -->
+  <div class="login-container">
+    <div class="col-md-6">
+      <h1 class="title mt-5">Please Login</h1>
+      <form action="">
+        <input
+          value="admin1"
+          id="login-username"
+          type="text"
+          class="input"
+          placeholder="username"
+          required
+        />
+        <input
+          id="login-password"
+          type="password"
+          class="input"
+          placeholder="password"
+          required
+          value="ASdf!@34"
+        />
+        <button onclick="handleLogin(event)" class="submit-btn">Login</button>
+        <p><a href="signup.html">go to Registration page</a></p>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <img class="w-100" src="./static/login-img-1.webp" alt="" />
+    </div>
+  </div>
+  <!-- table end -->
+
+
+    <!-- footer section start -->
+    
+
+    <footer class="p-5" style="background:rgb(239, 173, 206);">
+        <div class="container w-75 m-auto row p-5">
+          <div class="col-md-6">
+            <img src="static/logo-1.png" alt="" style=" width: 180px;">
+            <h5>Follow US</h5>
+            <div class="icons">
+              <img class="icon" src="static/LinkedIn.png" alt="" />
+              <img class="icon" src="static/YouTube.png"alt="" />
+              <img class="icon" src="static/LinkedIn.png" alt="" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5>Company</h5>
+            <li>ABout</li>
+            <li>Contact us</li>
+            <li>Culture</li>
+            <li>Blog</li>
+          </div>
+          <div class="col-md-3">
+            <h5>Details</h5>
+            <li>More</li>
+            <li>Functionality</li>
+            <li>Culture</li>
+            <li>Blog</li>
+            <li>Media</li>
+          </div>
+        </div>
+        <hr />
+        <p class="text-center mt-3">
+          <small>Copyright © Papri. All Rights Reserved</small>
+        </p>
+      </footer>
+    <!-- footer section end -->
+    <!-- js links -->
+    <script src="app.js"></script>
+    <script src="logout.js"></script>
+    <!-- <script src="userDetails.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
