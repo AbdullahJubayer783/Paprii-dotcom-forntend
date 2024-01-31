@@ -105,27 +105,43 @@
           quis sit, aperiam deserunt at accusamus!
         </p>
     <!-- all product section start -->
-    <div class="doctors-container row d-flex justify-content-center">
-        <div class="col-md-2 text-center ">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Filter By color:
-            </button>
-            <ul id="drop-colcat" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            </ul>
+    <div class="doctors-container  justify-content-center">
+
+
+        <div class=" text-center d-flex">
+          <!-- drop downs -->
+          <div class="d-flex gap-3">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Colors
+              </button>
+              <ul id="drop-colcat" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              </ul>
+            </div>
+            <div class="dropdown ">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Flowers
+              </button>
+              <ul id="drop-flwcat" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                
+              </ul>
+            </div>
+
           </div>
-          <div class="dropdown ms-2 mt-1">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Filter By Flower:
-            </button>
-            <ul id="drop-flwcat" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              
-            </ul>
+
+          <!-- search options  -->
+          <div class="search_container">
+
+            <input id="search" type="text" placeholder="Search Flowers" value="white"/>
+            <button class="btn btn-primary ms-2" onclick="handelSearch()">Search </button>
           </div>
+
         </div>
-        <div class="col-md-10">
-          <input id="search" type="text" placeholder="search..." value="white"/>
-          <button class="btn btn-primary ms-2" onclick="handelSearch()">Search </button>
+        <div class="">
+          <!-- flowers are shown here  -->
+          <div>
+
+          </div>
           <div id="flowers" class="flowers d-flex flex-wrap mt-5"></div>
           
           <div id="nodata" class="nodata">
