@@ -1,5 +1,7 @@
 const loadUserDetails = () => {
+
 const user_id = localStorage.getItem("usermodel_id");
+const builtin_user = localStorage.getItem("user_id");
   //=============================================
   fetch(`https://papri-dotcom.onrender.com/user/list/`)
   .then((res) => {
@@ -20,8 +22,7 @@ const user_id = localStorage.getItem("usermodel_id");
   .catch((error) => {
       console.error('Error fetching flower data:', error);
   });
-  //========================================
-  // https://papri-dotcom.onrender.com/orders/order/?user_id=6
+
   fetch(`https://papri-dotcom.onrender.com/orders/order/?user_id=${user_id}`)
   .then((res) => {
       if (!res.ok) {
@@ -38,6 +39,9 @@ const user_id = localStorage.getItem("usermodel_id");
       console.error('Error fetching flower data:', error);
   });
   
+  fetch(`https://papri-dotcom.onrender.com/user/user/?id=${builtin_user?builtin_user:""}`)
+  .then((res) => res.json())
+  .then((data) => console.log("Built in User data",data[0]));
 }
 
 const displayOrderData = (orders) => {
@@ -63,33 +67,66 @@ const displayOrderData = (orders) => {
 }
 
 const loadUserDetailsDisplay = (data) => {
+  userInfoDisply(data.user)
   console.log(data);
     const parent = document.getElementById("user-detais-container");
     const div = document.createElement("div");
-    // div.classList.add("user-all");
+    div.classList.add("user-img");
     div.innerHTML = `
-    <div class="user-img" >
     <img src="${data.image}" style="width: 300px; height: 300px; border-radius: 150px;" alt="" />
-  </div>
-  <div class="user-info">
-    <h1>${data.user}</h1>
-    <h3>${data.user.first_name } ${data.user.last_name}</h3>
-    <h3>${data.user.email}</h3>
-  </div>
     `;
     parent.appendChild(div);
-
-}
-const loadUsermodelId = () => {
-  const user_id = localStorage.getItem("user_id");
-
-  fetch(`https://papri-dotcom.onrender.com/user/list/?user=${user_id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("Model data from user",data[0].id);
-      localStorage.setItem("usermodel_id", data[0].id);
-    });
 };
 
-loadUsermodelId();
+const userInfoDisply = (id) => {
+  console.log("user id",id);
+  fetch(`https://papri-dotcom.onrender.com/user/user/${id}/`)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    const parent = document.getElementById("user-detais-container");
+    const div = document.createElement("div");
+    div.classList.add("user-info");
+    div.innerHTML = `
+    <h1>Name: ${data.first_name} ${data.last_name}</h1>
+    <h3>Email: ${data.email}</h3>
+    <h5>Username: ${data.username}</h5>
+    `;
+    parent.appendChild(div);
+  });
+};
+const navButtons = () => {
+  const token = localStorage.getItem("token");
+  const staff = localStorage.getItem("staff");
+  if(token&&staff==="true"){
+      const parent = document.getElementById("navbuttons");
+      parent.innerHTML = `
+      <a class="btn btn-info text-dark me-2" href="userDetails.html"><strong>Profile</strong></a>
+
+      <a class="btn btn-warning text-dark me-2" href="dashboard.html"><strong>Dashborad</strong></a>
+
+      <div onclick="handlelogOut()" class="btn btn-danger text-dark me-2" ><strong>Logout</strong></div>
+      `;
+  }else if(token){
+      const parent = document.getElementById("navbuttons");
+      parent.innerHTML = `
+      <a class="btn btn-info text-dark me-2" href="userDetails.html"><strong>Profile</strong></a>
+
+      <div onclick="handlelogOut()" class="btn btn-danger text-dark me-2" ><strong>Logout</strong></div>
+
+      `;
+  }else{
+      const parent = document.getElementById("navbuttons");
+      parent.innerHTML = `
+
+      <a class="btn btn-success text-dark me-2" target="_blank" href="signup.html"><strong>Signup</strong></a>
+
+      <a class="btn btn-primary text-dark me-2" target="_blank" href="login.html"><strong>Login</strong></a>
+      `;
+  }
+      
+      
+ 
+};
+navButtons();
 loadUserDetails()

@@ -1,12 +1,5 @@
   const handlelogOut = () => {
   const token = localStorage.getItem("token");
-  
-  if (!token) {
-      // No need to proceed if there's no token
-      return;
-  }
-
-  console.log(token);
   fetch("https://papri-dotcom.onrender.com/user/logout/", {
       method: "POST",
       headers: {
@@ -27,9 +20,12 @@
       // Additional actions after successful logout
       localStorage.removeItem("token");
       localStorage.removeItem("user_id");
+      sessionStorage.clear();
   })
   .catch((error) => {
       console.error("Logout error:", error);
+      
+
       // Handle error or provide user feedback here
   });
 };
