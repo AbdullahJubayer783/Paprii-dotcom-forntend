@@ -12,7 +12,9 @@
           return response.json();
       } else {
           console.log(response);
+          localStorage.clear()
           throw new Error('Logout request failed.');
+          
       }
   })
   .then((data) => {
@@ -24,8 +26,5 @@
   })
   .catch((error) => {
       console.error("Logout error:", error);
-      
-
-      // Handle error or provide user feedback here
   });
 };
